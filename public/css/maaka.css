@@ -1,0 +1,361 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #1f477d;
+    --primary-dark: #17385f;
+    --accent: #3b6fd8;
+    --background: #f6f8fb;
+    --surface: #ffffff;
+    --text: #13233a;
+    --muted: #718096;
+    --border: #e2e8f0;
+    --success: #0fa678;
+    --error: #dc5a5a;
+}
+
+body {
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    color: var(--text);
+    background: var(--background);
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+a {
+    text-decoration: none;
+}
+
+.login-page {
+    min-height: 100vh;
+    background: var(--background);
+}
+
+.login-layout {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.login-showcase {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(
+        145deg,
+        #17385f 0%,
+        #1f477d 55%,
+        #315eb7 100%
+    );
+    color: white;
+    padding: 42px 7%;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-showcase::before,
+.login-showcase::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.045);
+    pointer-events: none;
+}
+
+.login-showcase::before {
+    width: 480px;
+    height: 480px;
+    top: -190px;
+    right: -150px;
+}
+
+.login-showcase::after {
+    width: 380px;
+    height: 380px;
+    bottom: -180px;
+    left: 35%;
+}
+
+.showcase-brand {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.showcase-logo {
+    width: 58px;
+    height: 58px;
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    background: rgba(255, 255, 255, 0.13);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 25px;
+}
+
+.showcase-brand h2 {
+    font-size: 30px;
+    letter-spacing: 0.5px;
+}
+
+.showcase-brand span {
+    display: block;
+    color: #cbdcf7;
+    font-size: 13px;
+    margin-top: 2px;
+}
+
+.showcase-content {
+    position: relative;
+    z-index: 2;
+    max-width: 570px;
+    margin: auto 0;
+}
+
+.showcase-label {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    color: #cbdcf7;
+}
+
+.showcase-content h1 {
+    font-size: clamp(42px, 4vw, 62px);
+    line-height: 1.05;
+    margin: 17px 0 25px;
+    letter-spacing: -2px;
+}
+
+.showcase-content p {
+    max-width: 510px;
+    color: #dbe8fa;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+.showcase-services {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 38px;
+}
+
+.showcase-services div {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.showcase-services span {
+    width: 42px;
+    height: 42px;
+    border-radius: 11px;
+    background: rgba(255, 255, 255, 0.12);
+    display: grid;
+    place-items: center;
+}
+
+.showcase-services strong {
+    font-size: 14px;
+}
+
+.showcase-footer {
+    position: relative;
+    z-index: 2;
+    color: #bfd2ee;
+    font-size: 12px;
+}
+
+.login-form-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.login-card {
+    width: min(500px, 100%);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 42px;
+    box-shadow: 0 15px 40px rgba(31, 71, 125, 0.08);
+    animation: loginAppear 450ms ease both;
+}
+
+@keyframes loginAppear {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.login-heading span {
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.login-heading h1 {
+    font-size: 34px;
+    margin-top: 5px;
+}
+
+.login-heading p {
+    color: var(--muted);
+    margin-top: 7px;
+    line-height: 1.6;
+}
+
+.login-card form {
+    margin-top: 34px;
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 9px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    height: 53px;
+    padding: 0 15px;
+    transition: 180ms ease;
+    background: #fff;
+}
+
+.input-wrapper:focus-within {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(59, 111, 216, 0.08);
+}
+
+.input-wrapper span {
+    color: #94a3b8;
+    width: 25px;
+}
+
+.input-wrapper input {
+    border: 0;
+    outline: 0;
+    width: 100%;
+    height: 100%;
+    color: var(--text);
+    background: transparent;
+}
+
+.input-wrapper input::placeholder {
+    color: #9aa8ba;
+}
+
+.login-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0 25px;
+    font-size: 13px;
+}
+
+.login-options label {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    color: var(--muted);
+}
+
+.login-options a {
+    color: var(--accent);
+}
+
+.login-button {
+    width: 100%;
+    height: 53px;
+    border: 0;
+    border-radius: 11px;
+    background: var(--primary);
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 180ms ease;
+}
+
+.login-button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+.login-button:active {
+    transform: translateY(0);
+}
+
+.login-help {
+    border-top: 1px solid var(--border);
+    margin-top: 30px;
+    padding-top: 23px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.login-error {
+    background: #fff1f1;
+    color: var(--error);
+    border: 1px solid #f5d1d1;
+    padding: 12px 14px;
+    border-radius: 9px;
+    margin-top: 24px;
+    font-size: 13px;
+}
+
+@media (max-width: 900px) {
+    .login-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .login-showcase {
+        min-height: 430px;
+    }
+
+    .showcase-content h1 {
+        font-size: 42px;
+    }
+}
+
+@media (max-width: 550px) {
+    .login-form-area {
+        padding: 20px;
+    }
+
+    .login-card {
+        padding: 28px 22px;
+        border-radius: 17px;
+    }
+
+    .login-showcase {
+        padding: 28px 22px;
+    }
+
+    .showcase-content h1 {
+        font-size: 36px;
+    }
+}
